@@ -1,0 +1,72 @@
+name: breadth
+
+# GitHub's cron is UTC only, while the dashboard's email fires at 22:00 London.
+# The US close moves against UTC with the clock change, so no single time sits
+# inside both windows:
+#
+#   winter (GMT)  close 21:00 UTC   email 22:00 UTC
+#   summer (BST)  close 20:00 UTC   email 21:00 UTC
+#
+# So it runs twice. Whichever side of the change we are on, one of these is
+# about 20 minutes after the close and about 40 minutes before the email; the
+# other is harmless, because the builder drops any session still in progress
+# and simply republishes the last completed one.
+#
+# Scheduled runs are often 5-20 minutes late and are occasionally skipped
+# entirely at busy times. That is survivable here: the dashboard shows the
+# date of the figure it is using and says so when it is behind.
+
+on:
+  schedule:
+    - cron: '20 20 * * 1-5'
+    - cron: '20 21 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: breadth
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # Offline check first: the maths must still agree exactly with the Apps
+      # Script implementation before anything is published. A fixture of real
+      # prices, no network, same answer or the run fails.
+      - name: check the maths against the fixture
+        run: |
+          python3 build_breadth.py \
+            --cache tests/fixture_cache.json \
+            --check tests/fixture_rows.json \
+            --out /tmp/fixture_out.json
+
+      - name: build breadth.json
+        run: python3 build_breadth.py
+
+      - name: sanity check the published file
+        run: python3 check_output.py breadth.json
+
+      - name: commit
+        run: |
+          git config user.name  'breadth bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add breadth.json
+          # `generated` changes every run, so there is always something to
+          # commit. That is deliberate: a public repository with no activity
+          # for 60 days has its scheduled workflows switched off, and a daily
+          # commit is what keeps this one alive.
+          git commit -m "breadth $(date -u +%Y-%m-%dT%H:%MZ)" || exit 0
+          git push
