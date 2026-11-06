@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05T10:56:47Z",
+ "generated": "2026-11-06T01:00:26Z",
  "universe": 493,
  "rules": {
   "nearHigh": 3.0,
@@ -8,40 +8,23 @@
   "window": 120
  },
  "latest": {
-  "date": "2026-11-04",
-  "pct50": 72.2,
-  "pct200": 69.6,
-  "narrow50": 53.3,
-  "gap": -18.9,
-  "above50": 356,
-  "counted50": 493,
-  "counted200": 493,
-  "narrowCounted": 30,
-  "ndxDist": -8.9,
-  "spxDist": -1.7,
+  "date": "2026-11-05",
+  "pct50": 65.9,
+  "pct200": 63.0,
+  "narrow50": 45.5,
+  "gap": -20.4,
+  "above50": 114,
+  "counted50": 173,
+  "counted200": 173,
+  "narrowCounted": 11,
+  "ndxDist": -14.7,
+  "spxDist": -5.9,
   "lit": 0,
   "state": "WATCH",
-  "day": 31,
+  "day": 32,
   "watchFrom": "2026-09-23"
  },
  "history": [
-  {
-   "date": "2025-08-27",
-   "pct50": 68.0,
-   "pct200": 70.7,
-   "narrow50": 66.7,
-   "gap": -1.3,
-   "above50": 335,
-   "counted50": 493,
-   "counted200": 492,
-   "narrowCounted": 30,
-   "ndxDist": -1.2,
-   "spxDist": 0.0,
-   "lit": 0,
-   "state": "CLEAR",
-   "day": null,
-   "watchFrom": null
-  },
   {
    "date": "2025-08-28",
    "pct50": 66.7,
@@ -5123,6 +5106,23 @@
    "lit": 0,
    "state": "WATCH",
    "day": 31,
+   "watchFrom": "2026-09-23"
+  },
+  {
+   "date": "2026-11-05",
+   "pct50": 65.9,
+   "pct200": 63.0,
+   "narrow50": 45.5,
+   "gap": -20.4,
+   "above50": 114,
+   "counted50": 173,
+   "counted200": 173,
+   "narrowCounted": 11,
+   "ndxDist": -14.7,
+   "spxDist": -5.9,
+   "lit": 0,
+   "state": "WATCH",
+   "day": 32,
    "watchFrom": "2026-09-23"
   }
  ]
