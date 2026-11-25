@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24T05:20:38Z",
+ "generated": "2026-11-25T03:35:35Z",
  "universe": 493,
  "rules": {
   "nearHigh": 3.0,
@@ -8,40 +8,23 @@
   "window": 120
  },
  "latest": {
-  "date": "2026-11-23",
-  "pct50": 53.0,
+  "date": "2026-11-24",
+  "pct50": 56.1,
   "pct200": 55.7,
-  "narrow50": 36.7,
-  "gap": -16.3,
-  "above50": 261,
+  "narrow50": 33.3,
+  "gap": -22.8,
+  "above50": 276,
   "counted50": 492,
   "counted200": 492,
   "narrowCounted": 30,
-  "ndxDist": -14.3,
-  "spxDist": -7.4,
+  "ndxDist": -16.0,
+  "spxDist": -7.9,
   "lit": 0,
   "state": "WATCH",
-  "day": 44,
+  "day": 45,
   "watchFrom": "2026-09-23"
  },
  "history": [
-  {
-   "date": "2025-09-16",
-   "pct50": 54.6,
-   "pct200": 65.9,
-   "narrow50": 43.3,
-   "gap": -11.3,
-   "above50": 269,
-   "counted50": 493,
-   "counted200": 492,
-   "narrowCounted": 30,
-   "ndxDist": -0.1,
-   "spxDist": -0.1,
-   "lit": 0,
-   "state": "CLEAR",
-   "day": null,
-   "watchFrom": null
-  },
   {
    "date": "2025-09-17",
    "pct50": 57.2,
@@ -5123,6 +5106,23 @@
    "lit": 0,
    "state": "WATCH",
    "day": 44,
+   "watchFrom": "2026-09-23"
+  },
+  {
+   "date": "2026-11-24",
+   "pct50": 56.1,
+   "pct200": 55.7,
+   "narrow50": 33.3,
+   "gap": -22.8,
+   "above50": 276,
+   "counted50": 492,
+   "counted200": 492,
+   "narrowCounted": 30,
+   "ndxDist": -16.0,
+   "spxDist": -7.9,
+   "lit": 0,
+   "state": "WATCH",
+   "day": 45,
    "watchFrom": "2026-09-23"
   }
  ]
